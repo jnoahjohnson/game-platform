@@ -12,13 +12,7 @@ export default function GamePage() {
   return (
     <div className="p-4">
       <h1 className="font-bold text-4xl mb-2 text-center">Simple Platformer</h1>
-      {isLoaded ? (
-        <Unity
-          unityProvider={unityProvider}
-          style={{ width: 800, height: 600 }}
-          className="mx-auto"
-        />
-      ) : (
+      {isLoaded === false && (
         <svg
           role="status"
           className="mx-auto h-16 w-16 animate-spin fill-blue-600 text-gray-200 dark:text-gray-600"
@@ -36,6 +30,12 @@ export default function GamePage() {
           />
         </svg>
       )}
+
+      <Unity
+        unityProvider={unityProvider}
+        style={{ width: 800, height: 600 }}
+        className="mx-auto"
+      />
 
       <div className="flex items-center justify-center w-full">
         <Link to="/games" className="mt-6 text-center mx-auto">
